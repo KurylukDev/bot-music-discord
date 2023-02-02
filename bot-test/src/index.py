@@ -57,14 +57,14 @@ bot = commands.Bot(command_prefix='-', intents=discord.Intents.all())
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Dj Calorias"), status=discord.Status.idle)
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="PyMusic"), status=discord.Status.idle)
     print('bot ready')
 
 
 @bot.command(description="joins a voice channel")
 async def join(ctx):
     if ctx.author.voice is None or ctx.author.voice.channel is None:
-        return await ctx.send('No seas mogolico y metete a un canal de voz antes!')
+        return await ctx.send('Metete a un canal de voz antes.')
 
     voice_channel = ctx.author.voice.channel
     if ctx.voice_client is None:
@@ -108,11 +108,11 @@ async def ensure_voice(ctx):
         if ctx.author.voice:
             await ctx.author.voice.channel.connect()
         else:
-            await ctx.send("No seas mogolico y metete a un canal de voz antes!")
+            await ctx.send("Metete a un canal de voz.")
             raise commands.CommandError(
-                "Si que sos trolo")
+                "...")
     elif ctx.voice_client.is_playing():
         ctx.voice_client.stop()
 
 
-bot.run('MTA1OTAwNjIyMjM0MDE5NDQyNg.GqYuAh.qfDNT9CKkc1585wKX2qmGJC3hQYdLxSDyB4RJs')
+bot.run('Tu Key')
